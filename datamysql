@@ -1,0 +1,59 @@
+Create Database NYKAA;
+USE NYKAA;
+Create Table CUSTOMERS(
+    Nykid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    Nme VARCHAR(50) NOT NULL,
+    Email VARCHAR(50) NOT NULL UNIQUE,
+    Phone VARCHAR(15) NOT NULL UNIQUE,
+    Addrss VARCHAR(100) NOT NULL,
+    dob DATE NOT NULL,
+    gender CHAR(10) NOT NULL,
+    passwrd VARCHAR(50) NOT NULL,
+);
+
+Create Table BRANDS(
+    Brandid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    BrandName VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(200) NOT NULL,
+    passwrd VARCHAR(100) NOT NULL
+    Country_of_Origin VARCHAR(500) NOT NULL,
+    phone INT NOT NULL,
+    Prdcatgery INT NOT NULL,
+    websiteurl VARCHAR(200) NOT NULL,
+    launchdate DATE NOT NULL,
+    gstnum VARCHAR(15) NOT NULL UNIQUE,
+    netrevenue INT NOT NULL,
+);
+
+Create Table PRODUCTS(
+    Productid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    ProductName VARCHAR(50) NOT NULL,
+    BrandID INT NOT NULL,
+    Price DECIMAL(10, 2) NOT NULL,
+    Stock INT NOT NULL,
+    Category VARCHAR(50) NOT NULL,
+    Descrption TEXT,
+    FOREIGN KEY (BrandID) REFERENCES BRANDS(Brandid)
+);
+
+Create Table Ingrediants_Produ(
+    IngrediantID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    ProductID INT NOT NULL,
+    IngrediantName VARCHAR(100) NOT NULL,
+    FOREIGN KEY (ProductID) REFERENCES PRODUCTS(Productid)
+);
+
+Create Table ORDERS(
+    OrderID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    Nykid INT NOT NULL,
+    ProductName VARCHAR(50) NOT NULL,
+    BrandName VARCHAR(50) NOT NULL,
+    ProductID INT NOT NULL,
+    OrderDate DATE NOT NULL,
+    Quantity INT NOT NULL,
+    TotalAmount DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (Nykid) REFERENCES CUSTOMERS(Nykid),
+    FOREIGN KEY (ProductID) REFERENCES PRODUCTS(Productid)
+);
+
+
