@@ -323,9 +323,9 @@ def ingredient_compatibility_checker(cur, customer_id):
     ingredients = [row[0].lower() for row in cur.fetchall()]
     matched = [s for s in sensitivity_list if s in ingredients]
     if matched:
-        print(f"⚠️ This product contains your sensitive ingredients: {', '.join(matched)}.")
+        print(f" This product contains your sensitive ingredients: {', '.join(matched)}.")
     else:
-        print("✅ This product does not contain any of your sensitive ingredients.")
+        print(" This product does not contain any of your sensitive ingredients.")
 
 
 def customer_dashboard(customer_id, cur, mycon):
@@ -386,4 +386,5 @@ if __name__ == "__main__":
     main()
 
  
+
 
