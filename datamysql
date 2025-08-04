@@ -56,4 +56,10 @@ Create Table ORDERS(
     FOREIGN KEY (ProductID) REFERENCES PRODUCTS(Productid)
 );
 
+CREATE TABLE skin_profiles (
+    Nykid INT PRIMARY KEY,
+    SkinType VARCHAR(50),
+    Sensitivities TEXT,
+    FOREIGN KEY (Nykid) REFERENCES CUSTOMERS(Nykid)
+);
 
