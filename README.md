@@ -49,7 +49,3 @@ Add your `.sql` file if you want to quickly set up these tables.
 
 ## 📦 Installation
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/your-username/nykaa-skin-app.git
-   cd nykaa-skin-app
