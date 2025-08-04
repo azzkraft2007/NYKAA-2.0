@@ -283,7 +283,7 @@ def recommend_products(cur, customer_id):
     cur.execute("SELECT SkinType, Sensitivities FROM skin_profiles WHERE Nykid=%s", (customer_id,))
     profile = cur.fetchone()
     if not profile:
-        print("⚠️ No skin profile found. Please set it up first.")
+        print(" No skin profile found. Please set it up first.")
         return
     skin_type, sensitivities = profile
     sensitivity_list = [s.strip().lower() for s in sensitivities.split(',') if s.strip()] if sensitivities else []
@@ -386,3 +386,4 @@ if __name__ == "__main__":
     main()
 
  
+
